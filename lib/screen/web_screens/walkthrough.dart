@@ -41,11 +41,7 @@ class _WalkThroughState extends State<WalkThrough> {
             child: PageView(
               controller: _controller,
               onPageChanged: _onPageViewChange,
-              children: [
-                FirstScreen(),
-                SecondScreen(),
-                PublishedBidsPage()
-              ],
+              children: [FirstScreen(), SecondScreen(), PublishedBidsPage()],
             )));
   }
 }
@@ -95,6 +91,46 @@ class SecondScreen extends StatelessWidget {
                         );
                       },
                     ),
+                    NavButton(
+                      title: 'Publish a bids',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PublishaBidPage()),
+                        );
+                      },
+                    ),
+                      NavButton(
+                      title: 'blacklisting',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PublishaBidPage()),
+                        );
+                      },
+                    ),
+                      NavButton(
+                      title: 'Contractrecords',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PublishaBidPage()),
+                        );
+                      },
+                    ),
+                      NavButton(
+                      title: 'Admin Management',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PublishaBidPage()),
+                        );
+                      },
+                    ),
                   ],
                 ),
                 // Right-aligned menu item
@@ -119,6 +155,17 @@ class PublishedBidsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("published bid page");
+    return Scaffold(body: Container(
+      child: const Text("published bid page")
+    ),);
+  }
+}
+
+class PublishaBidPage extends StatelessWidget {
+  const PublishaBidPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text("Publish bid page");
   }
 }
