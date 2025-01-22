@@ -78,6 +78,46 @@ class _ValidationPageState extends State<ValidatoinPage> {
                 const SizedBox(
                   height: 10.0,
                 ),
+                customValidationForm(
+                    customHintText: "Office Name",
+                    controller: phno,
+                    customkeyboardtype: TextInputType.name,
+                    ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                customValidationForm(
+                    customHintText: "PAN N.O.",
+                    controller: phno,
+                    customkeyboardtype: TextInputType.number,
+                    ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                customValidationForm(
+                    customHintText: "VAT N.O.",
+                    controller: phno,
+                    customkeyboardtype: TextInputType.phone,
+                    ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                customValidationForm(
+                    customHintText: "Email",
+                    controller: phno,
+                    customkeyboardtype: TextInputType.emailAddress,
+                    ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                customValidationForm(
+                    customHintText: "Date of Birth",
+                    controller: phno,
+                    customkeyboardtype: TextInputType.datetime,
+                    ),
+                const SizedBox(
+                  height: 10.0,
+                ),
                 Row(children: [
                   Row(children: [
                     Radio(

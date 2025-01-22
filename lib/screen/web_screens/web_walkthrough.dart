@@ -1,14 +1,15 @@
+import 'package:cem/screen/web_screens/bid_invitation_page.dart';
 import 'package:cem/widgets/custom_elivated_button.dart';
 import 'package:flutter/material.dart';
 
-class WalkThrough extends StatefulWidget {
-  const WalkThrough({super.key});
+class WebWalkThrough extends StatefulWidget {
+  const WebWalkThrough({super.key});
 
   @override
-  State<WalkThrough> createState() => _WalkThroughState();
+  State<WebWalkThrough> createState() => _WebWalkThroughState();
 }
 
-class _WalkThroughState extends State<WalkThrough> {
+class _WebWalkThroughState extends State<WebWalkThrough> {
   PageController _controller = PageController(
     initialPage: 0,
   );
@@ -32,7 +33,7 @@ class _WalkThroughState extends State<WalkThrough> {
       currentPage = page.toString();
     });
   }
-
+@override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
@@ -41,7 +42,7 @@ class _WalkThroughState extends State<WalkThrough> {
             child: PageView(
               controller: _controller,
               onPageChanged: _onPageViewChange,
-              children: [FirstScreen(), SecondScreen(), PublishedBidsPage()],
+              children:const [FirstScreen(), SecondScreen(), PublishedBidsPage()],
             )));
   }
 }
@@ -58,7 +59,7 @@ class FirstScreen extends StatelessWidget {
         AppButton(
           onpressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (contex) => SecondScreen()));
+                MaterialPageRoute(builder: (contex) =>const  SecondScreen()));
           },
         )
       ],
@@ -141,7 +142,7 @@ class SecondScreen extends StatelessWidget {
           toolbarHeight: 70,
           backgroundColor: Colors.blue,
         ),
-        body: Column(
+        body: const Column(
           children: [
             Text(
                 "dashboard with    navbar containing Home ,PublishedBids, publish a bid, blacklisting, Contractrecords, and Admin Management(at rightmost part of the navbar)")
@@ -166,6 +167,8 @@ class PublishaBidPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("Publish bid page");
+    return const Scaffold(
+      body: BidInvitationPage(),
+    ) ;
   }
 }

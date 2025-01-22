@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TextFormField customFormField(String customHintText, bool isVisible) {
+TextFormField customFormField(String customHintText, bool isVisible , controller) {
   return TextFormField(
     obscureText: isVisible,
 

@@ -1,13 +1,14 @@
+import 'package:cem/screen/web_screens/bid_release_finalpage.dart';
 import 'package:flutter/material.dart';
 
-class MyTest extends StatefulWidget {
-  const MyTest({super.key});
+class ItemsListsPage extends StatefulWidget {
+  const ItemsListsPage({super.key});
 
   @override
-  State<MyTest> createState() => _MyTestState();
+  State<ItemsListsPage> createState() => _ItemsListsPageState();
 }
 
-class _MyTestState extends State<MyTest> {
+class _ItemsListsPageState extends State<ItemsListsPage> {
   List<TextEditingController> _controllers = [
     TextEditingController(),
     TextEditingController(),
@@ -385,7 +386,14 @@ class _MyTestState extends State<MyTest> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const BidSubmissionfinalPage()),
+                        );
+                      },
                       child: const Text(
                         "Next",
                         style: TextStyle(
