@@ -6,6 +6,8 @@ import 'package:cem/screen/signin_page.dart';
 import 'package:cem/screen/test.dart';
 import 'package:cem/screen/validation_page.dart';
 import 'package:cem/screen/web_screens/walkthrough.dart';
+import 'package:cem/views/admin_mngt.dart';
+import 'package:cem/views/user_verification.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +28,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const SigninPage(),
-      home: const WalkThrough(),
+      home:AdminManagement()
+      //UserVerification()
+      //const WalkThrough(),
       // home: const MyTest(),
       // home: const BidInvitationPage(),
       // home: DropDownSamplePage(),
