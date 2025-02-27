@@ -1,33 +1,27 @@
-import 'package:cem/widgets/colors.dart';
+import 'package:cem/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 ElevatedButton customElivatedButton(String btnText) {
   return ElevatedButton(onPressed: () {}, child: Text(btnText));
 }
+
 class AppButton extends StatelessWidget {
   final VoidCallback onpressed;
   const AppButton({
-    Key? key,
+    super.key,
     required this.onpressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onpressed,
-    style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColor.primaryColor,
-                            foregroundColor: AppColor.sixthColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius : BorderRadius.circular(5
-                              
-                              
-                              )
-                            )
-                    
-                            ),
-    
-    
-     child: Text("Continue"));
+    return ElevatedButton(
+        onPressed: onpressed,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.primaryColor,
+            foregroundColor: AppColor.sixthColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+        child: const Text("Continue"));
   }
 }
 
