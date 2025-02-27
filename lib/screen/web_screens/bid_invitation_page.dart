@@ -100,16 +100,16 @@ Contract Period
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-          children: [ Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+        body: ListView(children: [
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                     child: Text(
                       "Name",
@@ -254,10 +254,10 @@ Contract Period
               ),
             ],
           ),
-          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [ ElevatedButton(
+            children: [
+              ElevatedButton(
                 onPressed: _addToParagraph,
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 221, 110, 240),
@@ -272,76 +272,65 @@ Contract Period
                     fontSize: 15.0,
                   ),
                 ),
-              ),],
-          ),
-                SizedBox(
-          height: 20,
-                ),
-                
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Bid Invitation Letter")
-              
-            ],
-          ),
-          Row(
-            children: [
-          //     ListView(
-          //   children: [
-          //     listOfItems.isNotEmpty
-          //         ? Padding(
-          //             padding: const EdgeInsets.all(8.0),
-          //             child: Card(
-          //               elevation: 4.0,
-          //               child: Padding(
-          //                 padding: const EdgeInsets.all(10.0),
-          //                 child: Text(
-          //                   listOfItems.last['paragraph'],
-          //                   style: const TextStyle(fontSize: 14),
-          //                 ),
-          //               ),
-          //             ),
-          //           )
-          //         : const Center(child: Text('No data available')),
-          //   ],
-          // )
-          
-           Expanded(
-                child: listOfItems.isNotEmpty
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  elevation: 4.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      listOfItems.last['paragraph'],
-                      style: const TextStyle(fontSize: 14),
-                    ),
-                  ),
-                ),
-              )
-            : const Center(child: Text('No data available')),
-              )
-            ],
-          
-          
-          )
-                ],
-            
               ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text("Bid Invitation Letter")],
+          ),
+          Row(
+            children: [
+              //     ListView(
+              //   children: [
+              //     listOfItems.isNotEmpty
+              //         ? Padding(
+              //             padding: const EdgeInsets.all(8.0),
+              //             child: Card(
+              //               elevation: 4.0,
+              //               child: Padding(
+              //                 padding: const EdgeInsets.all(10.0),
+              //                 child: Text(
+              //                   listOfItems.last['paragraph'],
+              //                   style: const TextStyle(fontSize: 14),
+              //                 ),
+              //               ),
+              //             ),
+              //           )
+              //         : const Center(child: Text('No data available')),
+              //   ],
+              // )
 
-              AppButton(
-          onpressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (contex) => ItemsListsPage()));
-          },
-        )
-        ]));
-
-   
+              Expanded(
+                child: listOfItems.isNotEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 4.0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              listOfItems.last['paragraph'],
+                              style: const TextStyle(fontSize: 14),
+                            ),
+                          ),
+                        ),
+                      )
+                    : const Center(child: Text('No data available')),
+              )
+            ],
+          )
+        ],
+      ),
+      AppButton(
+        onpressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (contex) => const ItemsListsPage()));
+        },
+      )
+    ]));
   }
 }
-
-

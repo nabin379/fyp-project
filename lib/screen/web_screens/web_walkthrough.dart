@@ -14,7 +14,7 @@ class _WebWalkThroughState extends State<WebWalkThrough> {
     initialPage: 0,
   );
   var currentPage = "";
-  String _authStatus = 'Unknown';
+  final String authStatus = 'Unknown';
   @override
   void initState() {
     _controller = PageController();
@@ -27,22 +27,26 @@ class _WebWalkThroughState extends State<WebWalkThrough> {
     super.dispose();
   }
 
-  @override
-  _onPageViewChange(int page) {
+  void _onPageViewChange(int page) {
     setState(() {
       currentPage = page.toString();
     });
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: PageView(
               controller: _controller,
               onPageChanged: _onPageViewChange,
-              children:const [FirstScreen(), SecondScreen(), PublishedBidsPage()],
+              children: const [
+                FirstScreen(),
+                SecondScreen(),
+                PublishedBidsPage()
+              ],
             )));
   }
 }
@@ -59,7 +63,7 @@ class FirstScreen extends StatelessWidget {
         AppButton(
           onpressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (contex) =>const  SecondScreen()));
+                MaterialPageRoute(builder: (contex) => const SecondScreen()));
           },
         )
       ],
@@ -98,37 +102,37 @@ class SecondScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PublishaBidPage()),
+                              builder: (context) => const PublishBidPage()),
                         );
                       },
                     ),
-                      NavButton(
+                    NavButton(
                       title: 'blacklisting',
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PublishaBidPage()),
+                              builder: (context) => const PublishBidPage()),
                         );
                       },
                     ),
-                      NavButton(
+                    NavButton(
                       title: 'Contractrecords',
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PublishaBidPage()),
+                              builder: (context) => const PublishBidPage()),
                         );
                       },
                     ),
-                      NavButton(
+                    NavButton(
                       title: 'Admin Management',
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PublishaBidPage()),
+                              builder: (context) => const PublishBidPage()),
                         );
                       },
                     ),
@@ -156,19 +160,19 @@ class PublishedBidsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(
-      child: const Text("published bid page")
-    ),);
+    return const Scaffold(
+      body: SizedBox(child: Text("published bid page")),
+    );
   }
 }
 
-class PublishaBidPage extends StatelessWidget {
-  const PublishaBidPage({super.key});
+class PublishBidPage extends StatelessWidget {
+  const PublishBidPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: BidInvitationPage(),
-    ) ;
+    );
   }
 }
