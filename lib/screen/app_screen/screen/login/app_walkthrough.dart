@@ -1,8 +1,8 @@
-import 'package:cem/screen/app_screen/screen/validation_page.dart';
+import 'package:cem/screen/app_screen/screen/registration_page.dart';
 import 'package:cem/widgets/custom_text_formfield.dart';
 import 'package:flutter/material.dart';
 
-import '../../../widgets/custom_elivated_button.dart';
+import '../../../../widgets/custom_elivated_button.dart';
 
 class AppWalkThrough extends StatefulWidget {
   @override

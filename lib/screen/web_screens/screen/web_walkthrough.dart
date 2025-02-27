@@ -1,4 +1,4 @@
-import 'package:cem/screen/web_screens/bid_invitation_page.dart';
+import 'package:cem/screen/web_screens/screen/bid_invitation_page.dart';
 import 'package:cem/widgets/custom_elivated_button.dart';
 import 'package:flutter/material.dart';
 

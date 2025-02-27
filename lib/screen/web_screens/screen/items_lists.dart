@@ -1,4 +1,4 @@
-import 'package:cem/screen/web_screens/bid_release_finalpage.dart';
+import 'package:cem/screen/web_screens/screen/bid_release_finalpage.dart';
 import 'package:flutter/material.dart';
 
 class ItemsListsPage extends StatefulWidget {

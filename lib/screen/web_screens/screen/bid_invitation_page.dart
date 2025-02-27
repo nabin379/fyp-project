@@ -1,5 +1,5 @@
-import 'package:cem/screen/web_screens/bid_contents.dart';
-import 'package:cem/screen/web_screens/items_lists.dart';
+import 'package:cem/screen/web_screens/screen/bid_contents.dart';
+import 'package:cem/screen/web_screens/screen/items_lists.dart';
 import 'package:cem/widgets/custom_elivated_button.dart';
 import 'package:cem/widgets/custom_text_formfield.dart';
 import 'package:flutter/material.dart';
