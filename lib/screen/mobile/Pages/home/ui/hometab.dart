@@ -24,6 +24,14 @@ class Hometab extends StatelessWidget {
         );
         break;
 
+          
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const TenderOpened()),
+        );
+        break;
+
       default:
         Navigator.push(
           context,
@@ -57,7 +65,7 @@ class Hometab extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Container(
-                    padding: const EdgeInsets.fromLTRB(2, 2, 2, 3),
+                    padding: const EdgeInsets.fromLTRB(2, 2, 2, 0),
                     child: Stack(
                       children: [
                         ClipRRect(

@@ -1,4 +1,6 @@
+import 'package:cem/screen/mobile/Pages/publishedBids/apply_page.dart';
 import 'package:cem/screen/mobile/Pages/publishedBids/bid_now_page.dart';
+import 'package:cem/screen/mobile/Pages/publishedBids/view_page.dart';
 import 'package:flutter/material.dart';
 
 class TenderOpened extends StatefulWidget {
@@ -14,17 +16,7 @@ class _TenderOpenedState extends State<TenderOpened> {
     {"title": "Furniture 50 Chairs", "expiry": "3 december"},
     {"title": "Stage Construction", "expiry": "10 october"},
     {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
-    {"title": "Stage Construction", "expiry": "10 october"},
+
   ];
 
   @override
@@ -71,6 +63,39 @@ class _TenderOpenedState extends State<TenderOpened> {
                     ),
                   ),
                 ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ApplyPage(),
+                        ),
+                      );
+                    },
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text(
+                      "Apply",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                   ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ViewPage(),
+                        ),
+                      );
+                    },
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text(
+                      "View",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+
               ],
             );
           },
