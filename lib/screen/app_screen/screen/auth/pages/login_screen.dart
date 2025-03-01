@@ -126,6 +126,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: const Text("Create new?"),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Homepage()),
+                  );
+                },
+                child: const Text("etabata"),
+              ),
             ],
           ),
         ),
