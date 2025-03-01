@@ -2,12 +2,17 @@ import 'package:cem/core/constants/api_endpoints.dart';
 import 'package:cem/core/network/http_service.dart';
 import 'package:cem/screen/app_screen/screen/auth/providers/login_provider.dart';
 import 'package:cem/screen/app_screen/screen/auth/repository/auth_repository.dart';
+import 'package:cem/screen/mobile/Pages/home/ui/homepage.dart';
+import 'package:cem/screen/mobile/provider/applypage_provider.dart';
+import 'package:cem/screen/mobile/provider/imageprovider.dart';
+import 'package:cem/screen/mobile/provider/viewpage_provider.dart';
 import 'package:cem/screen/test_folder/test1.dart';
 import 'package:cem/screen/web_screens/bid_contents.dart';
 import 'package:cem/screen/web_screens/bid_invitation_page.dart';
 import 'package:cem/screen/app_screen/screen/auth/pages/login_screen.dart';
 import 'package:cem/screen/web_screens/items_lists.dart';
 import 'package:cem/screen/app_screen/screen/validation_page.dart';
+import 'package:cem/screen/web_screens/provider/switch_provider.dart';
 import 'package:cem/screen/web_screens/web_walkthrough.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,19 +41,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => TableViewModel()), // Provide ViewModel
+        ChangeNotifierProvider(create: (context) => DropdownProvider()),
+        ChangeNotifierProvider(create: (context) => ImageProviderClass()),
+        ChangeNotifierProvider(create: (context) => SwitchProvider()),
+        
+        
+        
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+      
+       // home: const WebWalkThrough(),
+      
+       
+      
+        home: const Homepage(),
       ),
-
-      home: const WebWalkThrough(),
-
-      //  home: Test1(),
-
-      // home: const LoginScreen(),
     );
   }
 }

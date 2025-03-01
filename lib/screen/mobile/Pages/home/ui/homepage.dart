@@ -19,8 +19,7 @@ class Homepage extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-          
-                 Image.asset("auctionicon.png",height: screenHeight * 0.07 ,),
+                 Image.asset("assets/images/auctionicon.png",height: screenHeight * 0.07 ,),
                   SizedBox(width:screenWidth * 0.03,),
                  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,9 +27,7 @@ class Homepage extends StatelessWidget {
                      Text("AVAS",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                      Text("Academia Vendor Auction System",style: TextStyle(color: Colors.white,fontSize: screenHeight * 0.02),),
                    ],
-                 ),
-                 
-              
+                 ),   
             ],
           ),
           flexibleSpace: Container(
