@@ -7,6 +7,7 @@ import 'package:cem/screen/mobile/provider/applypage_provider.dart';
 import 'package:cem/screen/mobile/provider/imageprovider.dart';
 import 'package:cem/screen/mobile/provider/viewpage_provider.dart';
 import 'package:cem/screen/test_folder/test1.dart';
+import 'package:cem/screen/web_screens/admin_mngt.dart';
 import 'package:cem/screen/web_screens/bid_contents.dart';
 import 'package:cem/screen/web_screens/bid_invitation_page.dart';
 import 'package:cem/screen/app_screen/screen/auth/pages/login_screen.dart';
@@ -59,11 +60,12 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
       
-       // home: const WebWalkThrough(),
+       home: const WebWalkThrough(),
+       //home: AdminManagement(),
       
        
       
-        home: const Homepage(),
+      //  home: const Homepage(),
       ),
     );
   }

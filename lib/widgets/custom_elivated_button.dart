@@ -7,8 +7,10 @@ ElevatedButton customElivatedButton(String btnText) {
 
 class AppButton extends StatelessWidget {
   final VoidCallback onpressed;
-  const AppButton({
+  
+   const AppButton({
     super.key,
+    
     required this.onpressed,
   });
 
@@ -17,6 +19,7 @@ class AppButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: onpressed,
         style: ElevatedButton.styleFrom(
+          
             backgroundColor: AppColor.primaryColor,
             foregroundColor: AppColor.sixthColor,
             shape:
