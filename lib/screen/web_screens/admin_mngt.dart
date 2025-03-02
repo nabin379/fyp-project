@@ -1,4 +1,5 @@
 
+import 'package:cem/core/constants/app_colors.dart';
 import 'package:cem/screen/web_screens/user_verification.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,8 @@ class AdminManagement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown,
@@ -38,7 +41,7 @@ class AdminManagement extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               child: Image.asset(
-                "assets/handshake_procure.jpg",
+                "assets/images/handshake_procure.jpg",
                 fit: BoxFit.cover,
               )),
           Positioned(
@@ -55,14 +58,14 @@ class AdminManagement extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     
                     elevation: 10,
-                    backgroundColor: Colors.deepOrange[800],
+                    backgroundColor: Colors.grey,
                     foregroundColor: Colors.white,
-                    padding: EdgeInsets.all(30),
+                    padding: EdgeInsets.all(10),
                     shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
                   ),
-                  child: Text("USER VERIFICATION",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
+                  child: Text("USER VERIFICATION",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),))),
           Positioned(
             bottom: 50,
             left: 700,

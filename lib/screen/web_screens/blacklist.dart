@@ -1,4 +1,5 @@
 
+import 'package:cem/core/constants/app_colors.dart';
 import 'package:cem/screen/web_screens/provider/switch_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _BlacklistState extends State<Blacklist> {
       appBar: AppBar(
         title: const Text("Blacklisting"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body:Consumer<SwitchProvider>(
         builder: (context,switchProvider,child) {
