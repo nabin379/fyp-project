@@ -28,14 +28,14 @@ class Hometab extends StatelessWidget {
       case 2:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const TenderOpened()),
+          MaterialPageRoute(builder: (context) => const PublishedBidMobile()),
         );
         break;
 
       default:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const TenderOpened()),
+          MaterialPageRoute(builder: (context) => const PublishedBidMobile()),
         );
 
       // Add more cases for other indices and screens

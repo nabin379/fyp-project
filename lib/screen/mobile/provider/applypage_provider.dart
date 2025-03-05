@@ -24,7 +24,7 @@ class DropdownProvider extends ChangeNotifier {
 
     // Simulated data (replace this with API response)
     _requirements = [
-      "1. requirement one",
+      "1. requirement one ",
       "2. requirement one ",
       "3. requirement one",
       "4. requirement one",
