@@ -3,6 +3,8 @@ import 'package:cem/core/network/http_service.dart';
 import 'package:cem/screen/app_screen/screen/auth/providers/login_provider.dart';
 import 'package:cem/screen/app_screen/screen/auth/repository/auth_repository.dart';
 import 'package:cem/screen/mobile/Pages/home/ui/homepage.dart';
+import 'package:cem/screen/mobile/Pages/publishedBids/publishedBids.dart';
+import 'package:cem/screen/mobile/Pages/publishedBids/sucess_apply.dart';
 import 'package:cem/screen/mobile/provider/applypage_provider.dart';
 import 'package:cem/screen/mobile/provider/imageprovider.dart';
 import 'package:cem/screen/mobile/provider/viewpage_provider.dart';
@@ -47,10 +49,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => TableViewModel()), // Provide ViewModel
         ChangeNotifierProvider(create: (context) => DropdownProvider()),
         ChangeNotifierProvider(create: (context) => ImageProviderClass()),
-        ChangeNotifierProvider(create: (context) => SwitchProvider()),
-        
-        
-        
+        ChangeNotifierProvider(create: (context) => SwitchProvider()), 
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -60,12 +59,14 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
       
-       home: const WebWalkThrough(),
+       home:
+       //SuccessApply() //PublishedBidMobile()
+       // const WebWalkThrough(),
        //home: AdminManagement(),
-      
+       
        
       
-      //  home: const Homepage(),
+       const Homepage(),
       ),
     );
   }
