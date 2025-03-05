@@ -23,30 +23,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  if (kIsWeb) {
-    runApp(const WebApp());
-  } else {
-    runApp(MultiProvider(
-      providers: [
-        Provider<HttpService>(
-          create: (_) => HttpService(ApiEndpoints.baseUrl),
-          lazy: false,
-        ),
-        ProxyProvider<HttpService, AuthRepository>(
-          update: (_, httpService, __) => AuthRepository(httpService),
-        ),
-        ChangeNotifierProvider<LoginProvider>(
-          create: (context) => LoginProvider(context.read<AuthRepository>()),
-        ),
-        ChangeNotifierProvider(
-            create: (context) => TableViewModel()), // Provide ViewModel
-        ChangeNotifierProvider(create: (context) => DropdownProvider()),
-        ChangeNotifierProvider(create: (context) => ImageProviderClass()),
-        ChangeNotifierProvider(create: (context) => SwitchProvider()),
-      ],
-      child: const MyApp(),
-    ));
-  }
+  runApp(MultiProvider(
+    providers: [
+      Provider<HttpService>(
+        create: (_) => HttpService(ApiEndpoints.baseUrl),
+        lazy: false,
+      ),
+      ProxyProvider<HttpService, AuthRepository>(
+        update: (_, httpService, __) => AuthRepository(httpService),
+      ),
+      ChangeNotifierProvider<LoginProvider>(
+        create: (context) => LoginProvider(context.read<AuthRepository>()),
+      ),
+      ChangeNotifierProvider(
+          create: (context) => TableViewModel()), // Provide ViewModel
+      ChangeNotifierProvider(create: (context) => DropdownProvider()),
+      ChangeNotifierProvider(create: (context) => ImageProviderClass()),
+      ChangeNotifierProvider(create: (context) => SwitchProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,5 +1,10 @@
+import 'package:cem/features/admin_web/home/screens/home_web_screen.dart';
 import 'package:cem/screen/web_screens/web_walkthrough.dart';
 import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const WebApp());
+}
 
 class WebApp extends StatelessWidget {
   const WebApp({super.key});
@@ -17,7 +22,7 @@ class WebApp extends StatelessWidget {
           //SuccessApply() //PublishedBidMobile()
           // const ,
           //home: AdminManagement(),
-          const WebWalkThrough(),
+          const HomeWebScreen(),
     );
   }
 }

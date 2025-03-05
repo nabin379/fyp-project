@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-TextFormField customFormField(String customHintText, bool isVisible , controller) {
+TextFormField customFormField(
+    String customHintText, bool isVisible, controller) {
   return TextFormField(
     obscureText: isVisible,
 
@@ -30,17 +31,28 @@ class BidInvitationCustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final TextInputType keyboardType;
+  final bool enabled;
+  final bool readOnly;
+  final VoidCallback? onTap;
+  final String? Function(String?)? validator;
 
   const BidInvitationCustomTextFormField({
     super.key,
     required this.controller,
     required this.labelText,
+    this.enabled = true,
+    this.readOnly = false,
+    this.onTap,
     this.keyboardType = TextInputType.text,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: enabled,
+      onTap: onTap,
+      readOnly: readOnly,
       keyboardType: keyboardType,
       controller: controller,
       decoration: InputDecoration(
@@ -50,6 +62,7 @@ class BidInvitationCustomTextFormField extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.black, width: 2.0),
         ),
       ),
+      validator: validator,
     );
   }
 }
