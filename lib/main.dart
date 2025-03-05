@@ -1,5 +1,6 @@
 import 'package:cem/core/constants/api_endpoints.dart';
 import 'package:cem/core/network/http_service.dart';
+import 'package:cem/main_web.dart';
 import 'package:cem/screen/app_screen/screen/auth/providers/login_provider.dart';
 import 'package:cem/screen/app_screen/screen/auth/repository/auth_repository.dart';
 import 'package:cem/screen/mobile/Pages/home/ui/homepage.dart';
@@ -17,25 +18,35 @@ import 'package:cem/screen/web_screens/items_lists.dart';
 import 'package:cem/screen/app_screen/screen/validation_page.dart';
 import 'package:cem/screen/web_screens/provider/switch_provider.dart';
 import 'package:cem/screen/web_screens/web_walkthrough.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      Provider<HttpService>(
-        create: (_) => HttpService(ApiEndpoints.baseUrl),
-        lazy: false,
-      ),
-      ProxyProvider<HttpService, AuthRepository>(
-        update: (_, httpService, __) => AuthRepository(httpService),
-      ),
-      ChangeNotifierProvider<LoginProvider>(
-        create: (context) => LoginProvider(context.read<AuthRepository>()),
-      ),
-    ],
-    child: const MyApp(),
-  ));
+  if (kIsWeb) {
+    runApp(const WebApp());
+  } else {
+    runApp(MultiProvider(
+      providers: [
+        Provider<HttpService>(
+          create: (_) => HttpService(ApiEndpoints.baseUrl),
+          lazy: false,
+        ),
+        ProxyProvider<HttpService, AuthRepository>(
+          update: (_, httpService, __) => AuthRepository(httpService),
+        ),
+        ChangeNotifierProvider<LoginProvider>(
+          create: (context) => LoginProvider(context.read<AuthRepository>()),
+        ),
+        ChangeNotifierProvider(
+            create: (context) => TableViewModel()), // Provide ViewModel
+        ChangeNotifierProvider(create: (context) => DropdownProvider()),
+        ChangeNotifierProvider(create: (context) => ImageProviderClass()),
+        ChangeNotifierProvider(create: (context) => SwitchProvider()),
+      ],
+      child: const MyApp(),
+    ));
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -44,30 +55,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => TableViewModel()), // Provide ViewModel
-        ChangeNotifierProvider(create: (context) => DropdownProvider()),
-        ChangeNotifierProvider(create: (context) => ImageProviderClass()),
-        ChangeNotifierProvider(create: (context) => SwitchProvider()), 
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-      
-       home:
-       //SuccessApply() //PublishedBidMobile()
-       // const WebWalkThrough(),
-       //home: AdminManagement(),
-       
-       
-      
-       const Homepage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: const Homepage(),
+
+      //SuccessApply() //PublishedBidMobile()
+      // const ,
+      //home: AdminManagement(),
+      // const WebWalkThrough(),
     );
   }
 }
