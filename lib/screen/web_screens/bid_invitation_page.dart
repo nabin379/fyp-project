@@ -2,6 +2,8 @@ import 'package:cem/core/constants/app_colors.dart';
 import 'package:cem/core/utils/validation.dart';
 import 'package:cem/features/bid/models/bid_invitation.dart';
 import 'package:cem/features/bid/providers/date_provider.dart';
+import 'package:cem/features/bid/providers/publish_bid_provider.dart';
+import 'package:cem/features/bid/repository/bid_repository.dart';
 import 'package:cem/screen/web_screens/items_lists.dart';
 import 'package:cem/widgets/custom_elivated_button.dart';
 import 'package:cem/widgets/custom_text_formfield.dart';
@@ -294,8 +296,13 @@ Contract Period
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (contex) => ItemsListsPage(
-                                bid: bid,
+                          builder: (contex) => ChangeNotifierProvider(
+                                create: (_) => PublishBidProvider(
+                                  context.read<BidRepository>(),
+                                ),
+                                child: ItemsListsPage(
+                                  bid: bid,
+                                ),
                               )));
                 },
               )

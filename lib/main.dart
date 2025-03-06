@@ -1,7 +1,7 @@
 import 'package:cem/core/constants/api_endpoints.dart';
 import 'package:cem/core/network/http_service.dart';
 import 'package:cem/features/bid/repository/bid_repository.dart';
-import 'package:cem/main_web.dart';
+import 'package:cem/features/bid/screens/admin_web/home_web_screen.dart';
 import 'package:cem/screen/app_screen/screen/auth/providers/login_provider.dart';
 import 'package:cem/screen/app_screen/screen/auth/repository/auth_repository.dart';
 import 'package:cem/screen/mobile/Pages/home/ui/homepage.dart';
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Homepage(),
+      home: kIsWeb ? const HomeWebScreen() : const Homepage(),
 
       //SuccessApply() //PublishedBidMobile()
       // const ,
