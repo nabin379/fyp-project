@@ -4,7 +4,9 @@ class ApiEndpoints {
   static const baseUrl = "http://localhost:8080";
 
   static const login = "/login";
-  
+
+  // create bid
+  static const createBid = "/bid/create";
 }
 
 

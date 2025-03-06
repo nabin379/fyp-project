@@ -1,5 +1,6 @@
 import 'package:cem/core/constants/app_colors.dart';
 import 'package:cem/core/utils/validation.dart';
+import 'package:cem/features/admin_web/home/models/bid_invitation.dart';
 import 'package:cem/features/admin_web/home/providers/date_provider.dart';
 import 'package:cem/screen/web_screens/items_lists.dart';
 import 'package:cem/widgets/custom_elivated_button.dart';
@@ -89,6 +90,9 @@ Contract Period
 
   final _formKey = GlobalKey<FormState>(); // Form key for validation
 
+  DateTime? _validDateTime;
+  DateTime? _openingDateTime;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,8 +139,10 @@ Contract Period
                       builder: (context, dateProvider, _) {
                         // change the value of text controller
                         _openingDateController.text =
-                            dateProvider.bidOpeningDate?.toIso8601String() ??
-                                "";
+                            dateProvider.pickedDate?.toIso8601String() ?? "";
+
+                        // initialize opening date
+                        _openingDateTime = dateProvider.pickedDate;
 
                         return BidInvitationCustomTextFormField(
                           controller: _openingDateController,
@@ -164,8 +170,10 @@ Contract Period
                       builder: (context, dateProvider, _) {
                         // change the value of text controller
                         _validPeriodController.text =
-                            dateProvider.bidOpeningDate?.toIso8601String() ??
-                                "";
+                            dateProvider.pickedDate?.toIso8601String() ?? "";
+
+                        // initialize end date
+                        _validDateTime = dateProvider.pickedDate;
 
                         return BidInvitationCustomTextFormField(
                           controller: _validPeriodController,
@@ -273,11 +281,22 @@ Contract Period
                     return;
                   }
 
+                  // create bid model class
+                  final bid = Bid(
+                    title: _bidNameController.text,
+                    bankAccNo: int.tryParse(_accountNumberController.text),
+                    bankName: _nameOfBankController.text,
+                    validDate: _openingDateTime,
+                    closeDate: _validDateTime,
+                  );
+
                   // else navigate to next page
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (contex) => const ItemsListsPage()));
+                          builder: (contex) => ItemsListsPage(
+                                bid: bid,
+                              )));
                 },
               )
             ]),
