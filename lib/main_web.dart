@@ -1,4 +1,4 @@
-import 'package:cem/features/admin_web/home/screens/home_web_screen.dart';
+import 'package:cem/features/home/screens/admin_web/home_web_screen.dart';
 import 'package:cem/screen/web_screens/web_walkthrough.dart';
 import 'package:flutter/material.dart';
 

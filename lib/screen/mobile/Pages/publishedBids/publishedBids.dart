@@ -1,5 +1,4 @@
 import 'package:cem/screen/mobile/Pages/publishedBids/apply_page.dart';
-import 'package:cem/screen/mobile/Pages/publishedBids/bid_now_page.dart';
 import 'package:cem/screen/mobile/Pages/publishedBids/view_page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,41 +27,34 @@ class _PublishedBidMobileState extends State<PublishedBidMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Published Bids'),
+        title: const Text('Published Bids'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Name', border: OutlineInputBorder()),
             ),
-            SizedBox(height: 10),
             TextField(
               controller: typeController,
               decoration: InputDecoration(
                   labelText: 'Type', border: OutlineInputBorder()),
             ),
-            SizedBox(height: 10),
             TextField(
               controller: publicEntityController,
               decoration: InputDecoration(
                   labelText: 'Public Entity', border: OutlineInputBorder()),
             ),
-            SizedBox(height: 10),
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(
-                  'Search',
-                  style: TextStyle(fontSize: 16),
-                ),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blue,
@@ -70,9 +62,12 @@ class _PublishedBidMobileState extends State<PublishedBidMobile> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
+                child: const Text(
+                  'Search',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             ),
-            SizedBox(height: 20),
             Text(
               'Published Bids',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -86,7 +81,7 @@ class _PublishedBidMobileState extends State<PublishedBidMobile> {
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ExpansionTile(
                       title: Text(results[index]['title']!),
                       subtitle: Text(results[index]['details']!),
@@ -95,14 +90,14 @@ class _PublishedBidMobileState extends State<PublishedBidMobile> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
-                            
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                   Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const ViewPage()),
-                    );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const ViewPage()),
+                                  );
                                 },
                                 child: Text(
                                   'View',
@@ -116,13 +111,17 @@ class _PublishedBidMobileState extends State<PublishedBidMobile> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 10,),
+                              SizedBox(
+                                width: 10,
+                              ),
                               ElevatedButton(
                                 onPressed: () {
-                                   Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const ApplyPage()),
-                    );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ApplyPage()),
+                                  );
                                 },
                                 child: Text(
                                   'Apply',

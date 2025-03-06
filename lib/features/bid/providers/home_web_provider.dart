@@ -1,8 +1,8 @@
-import 'package:cem/features/admin_web/home/repository/home_web_repository.dart';
+import 'package:cem/features/bid/repository/bid_repository.dart';
 import 'package:flutter/material.dart';
 
 class HomeWebProvider extends ChangeNotifier {
-  final HomeWebRepository homeWebRepository;
+  final BidRepository homeWebRepository;
 
   HomeWebProvider(this.homeWebRepository);
 }
