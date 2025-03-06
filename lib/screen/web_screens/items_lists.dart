@@ -1,6 +1,6 @@
 import 'package:cem/core/utils/validation.dart';
-import 'package:cem/features/home/models/bid_invitation.dart';
-import 'package:cem/features/home/providers/date_provider.dart';
+import 'package:cem/features/bid/models/bid_invitation.dart';
+import 'package:cem/features/bid/providers/date_provider.dart';
 import 'package:cem/screen/web_screens/bid_release_finalpage.dart';
 import 'package:cem/widgets/custom_text_formfield.dart';
 import 'package:flutter/material.dart';

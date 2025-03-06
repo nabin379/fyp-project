@@ -7,6 +7,9 @@ class ApiEndpoints {
 
   // create bid
   static const createBid = "/bid/create";
+
+  // get published
+  static const publishedBids = "/bid/categories";
 }
 
 

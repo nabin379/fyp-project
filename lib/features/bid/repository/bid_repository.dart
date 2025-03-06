@@ -11,12 +11,12 @@ class BidRepository {
   /// Create bid Method
   Future<String?> createBid(BidInvitation bidInvitation) async {
     try {
-      final response = await httpService.postRequest(
+      await httpService.postRequest(
         ApiEndpoints.createBid,
         bidInvitation.toJson(),
       );
 
-      return "hello";
+      return "Bid created successfully";
     } catch (e) {
       debugPrint('Bid creation failed: $e');
       return null; // Return null in case of error
@@ -28,7 +28,7 @@ class BidRepository {
   Future<List<BidInvitation>> getPublishedBids() async {
     try {
       final response = await httpService.getRequest(
-        ApiEndpoints.publishedBid,
+        ApiEndpoints.publishedBids,
       ) as List;
 
       return response

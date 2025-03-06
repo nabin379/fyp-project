@@ -1,8 +1,11 @@
+import 'package:cem/features/bid/providers/bid_invitation_list_provider.dart';
+import 'package:cem/features/bid/repository/bid_repository.dart';
 import 'package:cem/screen/mobile/Pages/In-progressBids/in_progress_bids.dart';
 import 'package:cem/screen/mobile/Pages/publishedBids/publishedBids.dart';
 import 'package:cem/screen/mobile/Pages/submittedBids/submitted_bids.dart';
 import 'package:cem/screen/mobile/data/cardlist.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 //import 'package:fyp/Pages/home/ui/homepage.dart';
 
 class Hometab extends StatelessWidget {
@@ -24,23 +27,28 @@ class Hometab extends StatelessWidget {
         );
         break;
 
-          
       case 2:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const PublishedBidMobile()),
+          MaterialPageRoute(builder: (context) => _publishedBidsPage()),
         );
         break;
 
       default:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const PublishedBidMobile()),
+          MaterialPageRoute(builder: (context) => _publishedBidsPage()),
         );
 
       // Add more cases for other indices and screens
     }
   }
+
+  Widget _publishedBidsPage() => ChangeNotifierProvider(
+        create: (context) =>
+            PublishedBidsProvider(context.read<BidRepository>()),
+        child: const PublishedBidMobile(),
+      );
 
   @override
   Widget build(BuildContext context) {

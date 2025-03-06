@@ -1,5 +1,6 @@
 import 'package:cem/core/constants/api_endpoints.dart';
 import 'package:cem/core/network/http_service.dart';
+import 'package:cem/features/bid/repository/bid_repository.dart';
 import 'package:cem/main_web.dart';
 import 'package:cem/screen/app_screen/screen/auth/providers/login_provider.dart';
 import 'package:cem/screen/app_screen/screen/auth/repository/auth_repository.dart';
@@ -34,6 +35,9 @@ void main() {
       ),
       ProxyProvider<HttpService, AuthRepository>(
         update: (_, httpService, __) => AuthRepository(httpService),
+      ),
+      ProxyProvider<HttpService, BidRepository>(
+        update: (_, httpService, __) => BidRepository(httpService),
       ),
       ChangeNotifierProvider<LoginProvider>(
         create: (context) => LoginProvider(context.read<AuthRepository>()),
